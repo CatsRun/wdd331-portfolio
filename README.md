@@ -1,1 +1,17 @@
-# wdd331-portfolio
+# WDD 331R Portfolio
+
+**Student:** Angela Murray
+**Semester:** Fall 2026
+**Live Site:** [View Site](https://catsrun.github.io/wdd331-portfolio/)
+
+## About
+
+This repository is my portfolio for WDD 331R: Advanced CSS.
+Each week I add new pages and styles as I work through the course
+assignments. The site deploys automatically to GitHub Pages on
+every push to main.
+
+## Pages
+
+- [Home](index.html)
+- [CSS](css/main.css)
