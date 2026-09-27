@@ -1,0 +1,224 @@
+/* ========================================
+   TOKENS
+   Define your design decisions here.
+   Everything else in this file should
+   reference these tokens with var().
+   ======================================== */
+:root {
+  /* Colors: at least primary, background, text, accent */
+  --color-primary: oklch(0.95 0.03 264);
+  --color-bg: oklch(0.96 0.012 85);
+  --color-accent-primary: oklch(0.5 0.17 25);
+  --color-accent-secondary: oklch(0.78 0.12 85);
+
+  --color-link: oklch(0.32 0.09 264);
+  --color-hover: var(--color-accent-primary);
+  --color-text: oklch(0.22 0.02 264);
+  --color-text-mute: oklch(30.894% 0.00387 264.577);
+  --color-text-tag: oklch(22.128% 0.01927 262.11 / 0.403);
+
+  --color-card-bg: oklch(55.11% 0.02007 264.426 / 0.474);
+  --color-button: oklch(0.32 0.09 264);
+
+  --shadow:
+    0 2px 4px oklch(0.2 0 0 / 0.1), 0 6px 12px oklch(0.2 0 0 / 0.07),
+    0 16px 32px oklch(0.2 0 0 / 0.05);
+
+  /* Spacing: at least sm, md, lg */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Typography: font family, base size */
+  --font-body: sans-serif;
+  --font-heading: Georgia, serif;
+
+  --font-size-sm: clamp(1rem, 2vw, 2.1rem);
+  --font-size-md: clamp(1.6rem, 4vw, 3.2rem);
+  --font-size-lg: clamp(2.4rem, 5vw, 4.8rem);
+
+  --heading: clamp(2rem, 4vw, 3.2rem);
+
+  --padding-xs: clamp(0.5rem, 1.5vw, 1rem);
+  --padding-sm: clamp(1.2rem, 3vw, 3rem);
+  --padding-md: clamp(1.6rem, 4vw, 4rem);
+
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.75rem;
+
+  /* Borders: radius */
+  --border-radius: 8px;
+}
+
+/* ========================================
+   RESET
+   A minimal reset so you start clean.
+   ======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================================
+   BASE STYLES
+   Style the body, links, and any raw
+   HTML elements here. Use nesting.
+   ======================================== */
+body {
+  /* font family, color, background, line-height, padding */
+  /* Use clamp() for padding to make it fluid. */
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  padding: var(--padding-md);
+  margin: var(--spacing-md);
+
+  a {
+    /* link color from tokens */
+    color: var(--color-link);
+    &:hover {
+      color: var(--color-hover);
+    }
+  }
+}
+
+/* ========================================
+   NAVIGATION
+   Style .site-nav so students can get
+   back to the homepage.
+   ======================================== */
+.site-nav {
+  /* padding, margin-bottom */
+  padding: var(--padding-xs);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ========================================
+   BOARD HEADER
+   Style the page header area.
+   ======================================== */
+.board-header {
+  /* text alignment, margin, padding */
+  /* Use clamp() for the h1 font size. */
+
+  h1 {
+    /* fluid font size */
+    font-size: var(--font-size-lg);
+  }
+
+  p {
+    /* muted text color, spacing */
+    color: var(--color-text-mute);
+    margin-top: var(--spacing-sm);
+  }
+}
+
+/* ========================================
+   CARD GROUP
+   Each section of cards (This Week,
+   Coming Up, Announcements).
+   ======================================== */
+.card-group {
+  margin-bottom: var(--spacing-xl);
+  padding: var(--spacing-md);
+
+  h2 {
+    /* section heading styles */
+    font-size: var(--font-size-md);
+    margin-bottom: var(--spacing-xs);
+  }
+}
+
+/* ========================================
+   CARDS GRID
+   Layout the .cards container as a
+   responsive grid or flex layout.
+   ======================================== */
+.cards {
+  /* display, gap (use calc to derive from a token), columns */
+  display: grid;
+  gap: calc(var(--spacing-md) * 2);
+  /* grid-template-columns: repeat(3, 1fr); */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding-top: 0;
+}
+
+/* ========================================
+   INDIVIDUAL CARD
+   Style each .card article. This is where
+   most of your nesting will happen.
+   ======================================== */
+.card {
+  /* background, padding, border-radius, shadow */
+  /* Use a var() with a fallback value here. */
+  color: var(--color-text);
+  background-color: var(--color-card-bg);
+  border-radius: var(--border-radius);
+  padding-top: 0;
+  box-shadow: var(--shadow);
+
+  .card-tag {
+    /* small label: font-size, padding, background, border-radius */
+    font-size: var(--font-size-md);
+    background-color: var(--color-accent-secondary);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+    text-align: center;
+    padding: 1rem;
+  }
+
+  h3 {
+    /* card title styles */
+    font-size: var(--font-size-sm);
+    padding: var(--padding-xs);
+  }
+
+  p {
+    /* card body text */
+    font-size: var(--font-size-sm);
+
+    padding-left: var(--padding-xs);
+    padding-right: var(--padding-xs);
+  }
+
+  .card-meta {
+    /* bottom row: flexbox with space-between */
+    /* style the span and link inside here with nesting */
+
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--padding-xs);
+    padding-right: var(--padding-xs);
+
+    span {
+      align-self: center;
+      font-weight: bolder;
+    }
+
+    a {
+      font-weight: bold;
+    }
+  }
+}
+
+/* ========================================
+   FOOTER
+   Style the .board-footer at the bottom.
+   ======================================== */
+.board-footer {
+  /* text alignment, padding, muted color, top border */
+  text-align: left;
+  padding: var(--padding-sm);
+  color: var(--color-text-mute);
+  background-color: var(--color-bg);
+  border-top: 2px solid var(--color-accent-primary);
+}

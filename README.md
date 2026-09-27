@@ -15,3 +15,4 @@ every push to main.
 
 - [Home](index.html)
 - [CSS](css/main.css)
+- [Custom Properties and Nesting](unit-1/custom-properties/index.html)
