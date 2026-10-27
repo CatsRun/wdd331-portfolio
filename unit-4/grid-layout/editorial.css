@@ -1,0 +1,35 @@
+.editorial-page {
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  footer {
+    text-align: center;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: auto 270px;
+    grid-template-areas: 'content aside ';
+    gap: 1rem;
+
+    main {
+      grid-area: content;
+    }
+
+    .aside {
+      grid-area: aside;
+    }
+  }
+  @media (max-width: 400px) {
+    .layout {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'content' 'aside';
+      gap: 1rem;
+    }
+  }
+}
