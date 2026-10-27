@@ -1,0 +1,45 @@
+.articles-page {
+  /*outter grid*/
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    /*inner grid*/
+    display: grid;
+    grid-template-rows:
+      [img-start] 30px
+      [img-end header-start] auto
+      [header-end main-start] auto
+      [main-end link-start] 0.5fr
+      [link-end];
+
+    padding: 1rem;
+    border: solid;
+
+    div {
+      /* grid-row: img-start / img-end; */
+      display: contents;
+    }
+    h2 {
+      grid-row: header-start / header-end;
+      align-self: start;
+    }
+
+    p {
+      grid-row: main-start / main-end;
+    }
+
+    a {
+      grid-row: link-start / link-end;
+      align-self: end;
+    }
+    /* } */
+  }
+}
+
+/* [img-start] 1fr
+      [img-end other-content-start] 1fr
+      [other-ontent-end]; */
