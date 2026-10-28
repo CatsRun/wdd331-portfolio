@@ -35,3 +35,10 @@ a:hover {
 footer {
   margin-top: 2rem;
 }
+
+/* change this to use tokens */
+.card {
+  padding: 1rem;
+  border: solid;
+  border-radius: 0.5rem;
+}
