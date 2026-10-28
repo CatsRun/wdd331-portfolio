@@ -17,7 +17,7 @@
       [link-end];
 
     div {
-      display: contents; /*item is ignored allowing grid to work on grandchild of .card*/
+      display: contents; /* Choose topic - div is ignored allowing grid to work on grandchild of .card*/
     }
     h2 {
       grid-row: header-start / header-end;
