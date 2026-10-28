@@ -10,24 +10,23 @@
     /*inner grid*/
     display: grid;
     grid-template-rows:
-      [img-start] 30px
+      [img-start] 50px
       [img-end header-start] auto
-      [header-end main-start] auto
-      [main-end link-start] 0.5fr
+      [header-end main-start] 1fr
+      [main-end link-start] auto
       [link-end];
 
-    padding: 1rem;
-    border: solid;
-
     div {
-      /* grid-row: img-start / img-end; */
-      display: contents;
+      display: contents; /*item is ignored allowing grid to work on grandchild of .card*/
     }
     h2 {
       grid-row: header-start / header-end;
       align-self: start;
     }
-
+    > div[aria-hidden='true'] {
+      display: block;
+      grid-row: img-start / img-end;
+    }
     p {
       grid-row: main-start / main-end;
     }
@@ -36,10 +35,5 @@
       grid-row: link-start / link-end;
       align-self: end;
     }
-    /* } */
   }
 }
-
-/* [img-start] 1fr
-      [img-end other-content-start] 1fr
-      [other-ontent-end]; */
