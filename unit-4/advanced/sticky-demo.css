@@ -1,0 +1,19 @@
+.sticky-page {
+  .sticky-element {
+    position: sticky;
+
+    top: 0;
+    background-color: rgb(168, 209, 246);
+  }
+
+  /* overflow: hidden; */ /*don't put it here*/
+
+  .img-grid {
+    overflow: hidden;
+  }
+  /*  The overflow: hidden effects all of .sticky-page and its descendants. It causes the sticky element to break. To fix this, change the overflow:hidden to target the specific item that needs it. That way it does not interfere with other items. 
+  Ex: 
+  .sticky-page {overflow: hidden;}  --affects the entire page.
+  .sticky-page .img-grid {overflow: hidden} --only effects where it is needed. 
+  */
+}
