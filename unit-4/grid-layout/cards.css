@@ -1,14 +1,13 @@
 .articles-page {
-  /*outter grid*/
-  .card-grid {
+  /* ***With named grid lines*** */
+
+  /* .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
-
     gap: 1rem;
   }
 
   .card {
-    /*inner grid*/
     display: grid;
     grid-template-rows:
       [img-start] 50px
@@ -18,18 +17,15 @@
       [link-end];
 
     div {
-      display: contents; /* Choose topic - div is ignored allowing grid to work on grandchild of .card*/
+      display: contents;
     }
     h2 {
       grid-row: header-start / header-end;
-
       align-self: start;
     }
     > div[aria-hidden='true'] {
       display: block;
       grid-row: img-start / img-end;
-      grid-template-rows: subgrid;
-      grid-row: 2 / 5;
     }
     p {
       grid-row: main-start / main-end;
@@ -39,5 +35,46 @@
       grid-row: link-start / link-end;
       align-self: end;
     }
+  } */
+
+  /* ***With subgrid*** */
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    grid-template-rows: auto 1fr auto;
+    gap: 1rem;
+    align-items: stretch;
   }
+
+  .card {
+    grid-row: span 3;
+    display: grid;
+    grid-template-rows: subgrid;
+    gap: 0.75rem;
+  }
+  div {
+    display: contents;
+  }
+
+  /* ***With @support *** */
+  /* @supports (grid-template-rows: subgrid) {
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      grid-template-rows: auto 1fr auto;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .card {
+      grid-row: span 3;
+      display: grid;
+      grid-template-rows: subgrid;
+      gap: 0.75rem;
+    }
+    div {
+      display: contents;
+    }
+  } */
 }
