@@ -14,7 +14,7 @@
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 2rem;
-  --font-body: system-ui, -apple-system, sans-serif;
+  --font-body: system-ui, sans-serif;
 }
 
 body {
@@ -37,8 +37,22 @@ footer {
 }
 
 /* change this to use tokens */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+  /* align-items: stretch; */
+}
+
 .card {
   padding: 1rem;
   border: solid;
   border-radius: 0.5rem;
+  gap: 1rem;
+}
+
+ul {
+  list-style: none;
 }
