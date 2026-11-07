@@ -1,0 +1,27 @@
+.containers-page {
+  .card-wrapper {
+    container-type: inline-size;
+    container-name: wrapper;
+  }
+  .sidebar {
+    max-width: 280px;
+  }
+
+  .card {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  @container wrapper (min-width: 400px) {
+    .card {
+      /* grid-template-columns: 1fr auto; */
+      grid-template-columns: minmax(120px, 40%) 1fr;
+      align-items: center;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
