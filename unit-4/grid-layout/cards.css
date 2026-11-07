@@ -3,6 +3,7 @@
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+
     gap: 1rem;
   }
 
@@ -21,11 +22,14 @@
     }
     h2 {
       grid-row: header-start / header-end;
+
       align-self: start;
     }
     > div[aria-hidden='true'] {
       display: block;
       grid-row: img-start / img-end;
+      grid-template-rows: subgrid;
+      grid-row: 2 / 5;
     }
     p {
       grid-row: main-start / main-end;

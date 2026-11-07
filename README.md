@@ -18,3 +18,5 @@ every push to main.
 - [Custom Properties and Nesting](unit-1/custom-properties/index.html)
 - [Cards](unit-4/grid-layout/cards.html)
 - [Editorial](unit-4/grid-layout/editorial.html)
+- [Sticky](unit-4/advanced/sticky-demo.html)
+- [Container](unit-4/advanced/container-demo.html)
