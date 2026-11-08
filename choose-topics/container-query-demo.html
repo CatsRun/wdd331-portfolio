@@ -1,0 +1,104 @@
+<!-- DISCLAIMER: This was produced by GROK with the promp: Use the following to create html and css to demonstrate The style query @container style() syntax, what a style container is, and the theme token on wrapper pattern demonstrated with a live component reacting to a custom property signal.
+ AND the contents of https://byui-cse.github.io/wdd331r-course/unit/4/learn/choose/cq-units.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Style Queries Demo</title>  
+    <link rel="stylesheet" href="container-query-demo.css">
+</head>
+<body>
+  <header class="page-header">
+    <h1>Style Queries: Theme Token on Wrapper</h1>
+    <p>
+      A style container is any ancestor with <code>container-type</code> set.
+      Style queries do not care about its width. They read a custom property
+      set on that container and let descendants react.
+    </p>
+    <p class="note">
+      Style queries work in Chrome, Edge, and Safari. Firefox support is still
+      pending. Use a supporting browser so the cards change color.
+    </p>
+  </header>
+
+  <main>
+    <!-- Same component, three wrappers, three signals. No classes on the cards. -->
+    <section class="surface" style="--surface: light">
+      <p class="label">Wrapper sets <code>--surface: light</code></p>
+      <article class="card">
+        <h2 class="card-title">Same card component</h2>
+        <p class="card-body">
+          This card has no theme class. It reads <code>--surface</code> from
+          its container through <code>@container style()</code>.
+        </p>
+        <button class="btn" type="button">Action</button>
+      </article>
+    </section>
+
+    <section class="surface" style="--surface: dark">
+      <p class="label">Wrapper sets <code>--surface: dark</code></p>
+      <article class="card">
+        <h2 class="card-title">Same card component</h2>
+        <p class="card-body">
+          Move the card into a different wrapper and it picks up that
+          wrapper's signal. No JavaScript, no class toggle on the card.
+        </p>
+        <button class="btn" type="button">Action</button>
+      </article>
+    </section>
+
+    <section class="surface" style="--surface: warning">
+      <p class="label">Wrapper sets <code>--surface: warning</code></p>
+      <article class="card">
+        <h2 class="card-title">Same card component</h2>
+        <p class="card-body">
+          One query per variant on the component. New components inside this
+          section inherit the signal without new selectors.
+        </p>
+        <button class="btn" type="button">Action</button>
+      </article>
+    </section>
+
+    <!-- Live toggle: changes the custom property on the wrapper only -->
+    <section class="live" id="live-section">
+      <div class="live-controls">
+        <p class="label">Live: change the token on the wrapper</p>
+        <div class="switcher" role="group" aria-label="Surface signal">
+          <button type="button" data-surface="light">light</button>
+          <button type="button" data-surface="dark">dark</button>
+          <button type="button" data-surface="warning">warning</button>
+        </div>
+        <p class="hint">
+          These buttons only set <code>--surface</code> on the section.
+          The card's classes never change. You can do the same in DevTools:
+          select the section and edit <code>--surface</code>.
+        </p>
+      </div>
+      <article class="card">
+        <h2 class="card-title">Watch this card</h2>
+        <p class="card-body">
+          The wrapper broadcasts a custom property. The style query on the
+          card listens for that property and restyles.
+        </p>
+        <button class="btn" type="button">Action</button>
+      </article>
+    </section>
+  </main>
+  <footer>
+    <p>
+      This was created with the ai.
+    </p>
+  </footer>
+  <script>
+    // Demo only: sets a custom property on the wrapper.
+    // The card itself is never given a theme class.
+    const live = document.getElementById("live-section");
+    live.querySelectorAll("[data-surface]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        live.style.setProperty("--surface", btn.dataset.surface);
+      });
+    });
+  </script>
+</body>
+</html>
