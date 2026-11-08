@@ -1,0 +1,184 @@
+/*<!-- DISCLAIMER: This was produced by GROK with the promp: Use the following to create html and css to demonstrate The style query @container style() syntax, what a style container is, and the theme token on wrapper pattern demonstrated with a live component reacting to a custom property signal.
+ AND the contents of https://byui-cse.github.io/wdd331r-course/unit/4/learn/choose/cq-units.html -->*/
+/* ============================================
+   Tokens
+   ============================================ */
+:root {
+  --color-text: #1c1917;
+  --color-text-muted: #57534e;
+  --color-surface: #fafaf9;
+  --color-surface-inverted: #1c1917;
+  --color-text-inverted: #fafaf9;
+  --color-border: #e7e5e4;
+  --color-warning-bg: #fef3c7;
+  --color-warning-fg: #92400e;
+  --color-warning-border: #f59e0b;
+  --font: system-ui, sans-serif;
+  --space: 1rem;
+  --radius: 10px;
+}
+
+/* ============================================
+   Page
+   ============================================ */
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--color-text);
+  background: #f5f5f4;
+  line-height: 1.5;
+}
+
+.page-header,
+main {
+  max-width: 40rem;
+  margin-inline: auto;
+  padding: 1.5rem;
+}
+
+.page-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.75rem;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+code {
+  font-size: 0.9em;
+}
+
+/* ============================================
+   Style container
+   A style container is an element with container-type.
+   Any type qualifies for style queries. inline-size is
+   the usual choice because it also enables size queries
+   and cqi if you add them later.
+   The theme token (--surface) is set on the wrapper,
+   not on the card.
+   ============================================ */
+.surface,
+.live {
+  container-type: inline-size;
+  container-name: surface;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius);
+  background: white;
+}
+
+/* Default signal if none is set inline */
+.surface,
+.live {
+  --surface: light;
+}
+
+.label,
+.hint {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   Component: default (light) look
+   No theme class. Layout only.
+   ============================================ */
+.card {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.card-body {
+  margin: 0;
+}
+
+.btn {
+  justify-self: start;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: white;
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ============================================
+   Style queries
+   @container style(--surface: ...) reads the custom
+   property on the container. The card does not know
+   which section it is in.
+   ============================================ */
+@container surface style(--surface: dark) {
+  .card {
+    background: var(--color-surface-inverted);
+    color: var(--color-text-inverted);
+    border-color: #44403c;
+  }
+
+  .btn {
+    background: transparent;
+    color: var(--color-text-inverted);
+    border-color: #a8a29e;
+  }
+}
+
+@container surface style(--surface: warning) {
+  .card {
+    background: var(--color-warning-bg);
+    color: var(--color-warning-fg);
+    border-color: var(--color-warning-border);
+  }
+
+  .btn {
+    background: var(--color-warning-fg);
+    color: var(--color-warning-bg);
+    border-color: var(--color-warning-fg);
+  }
+}
+
+/* ============================================
+   Live switcher (demo chrome only)
+   Sets --surface on the wrapper. Does not add
+   a class to .card.
+   ============================================ */
+.live-controls {
+  margin-bottom: 1rem;
+}
+
+.switcher {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.switcher button {
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+.switcher button:hover {
+  border-color: #a8a29e;
+}
+
+footer {
+  text-align: center;
+}

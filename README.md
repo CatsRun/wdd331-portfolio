@@ -20,3 +20,8 @@ every push to main.
 - [Editorial](unit-4/grid-layout/editorial.html)
 - [Sticky](unit-4/advanced/sticky-demo.html)
 - [Container](unit-4/advanced/container-demo.html)
+
+## Choose Topics and Videos
+
+- [Container Query Units and Style Queries](/choose-topics/container-query-demo.html)
+  Container Query Units and Style Queries https://youtu.be/VdTu2JwLzh4
