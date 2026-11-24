@@ -3,3 +3,10 @@
    by layer order without needing !important. */
 
 /* TODO: Add any utility classes you find useful */
+.card-tag {
+  font-style: italic;
+}
+
+.site-nav {
+  font-weight: 600;
+}

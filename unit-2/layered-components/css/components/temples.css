@@ -2,3 +2,11 @@
    Style the status badges differently based on class (.open, .construction). */
 
 /* TODO: Style the temple list */
+.temple-list {
+  background-color: var(--color-focus-bg);
+  padding: var(--space-sm);
+  border-radius: var(--radius-md);
+  h2 {
+    padding-bottom: var(--space-md);
+  }
+}
