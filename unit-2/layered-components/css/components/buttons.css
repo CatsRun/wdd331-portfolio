@@ -2,3 +2,13 @@
    Use native nesting for pseudo-classes and modifiers. */
 
 /* TODO: Style the button components */
+/* https://byui-cse.github.io/wdd331r-course/unit/2/learn/modern-selectors.html */
+
+button:focus {
+  outline: none;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}

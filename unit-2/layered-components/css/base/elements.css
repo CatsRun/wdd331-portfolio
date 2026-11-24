@@ -3,3 +3,39 @@
    Reference tokens with var(). */
 
 /* TODO: Style body, headings, links, and other base elements */
+
+/* base/elements.css: flat, top-level element styles */
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: var(--space-lg);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary);
+
+  &:hover {
+    color: var(--color-primary-light);
+  }
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: var(--space-md);
+}
+li {
+  list-style-type: none;
+}
+
+/* when h1 followed by p */
+h1:has(+ p) {
+  margin-bottom: var(--space-md);
+}
+
+footer {
+  text-align: center;
+}

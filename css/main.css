@@ -11,10 +11,10 @@
   --color-text: #1e293b;
   --color-primary: #006eb6;
   --color-primary-hover: #004f7f;
-  --space-sm: 0.5rem;
+  /* --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 2rem;
-  --font-body: system-ui, sans-serif;
+  --font-body: system-ui, sans-serif; */
 }
 
 body {

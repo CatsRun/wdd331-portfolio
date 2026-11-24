@@ -2,3 +2,21 @@
    Style the active link using aria-current. */
 
 /* TODO: Style the navigation */
+/* reference https://byui-cse.github.io/wdd331r-course/unit/2/learn/modern-selectors.html  */
+
+.site-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--space-md);
+
+  ul {
+    display: flex;
+    list-style: none;
+    gap: clamp(var(--space-sm), 2vw, var(--space-lg));
+  }
+}
+
+article :is(h1, h2, h3, h4) a {
+  color: var(--color-link);
+  text-decoration: none;
+}

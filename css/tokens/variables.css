@@ -8,4 +8,21 @@
   --font-size-2xl: 2.7rem; /* 27px */
   --font-size-3xl: 3rem; /* 30px */
   --font-size-4xl: 3.6rem; /* 36px */
+
+  /* fluid declorations  */
+  --font-size: clamp(2.4rem, 1.364vw + 1.9636rem, 3.6rem);
+
+  /* semantic roles pointing at scale steps */
+  --font-size-body: var(--font-size-md);
+  --font-size-body-sm: var(--font-size-sm);
+  --font-size-caption: var(--font-size-xs);
+  --font-size-heading-sm: var(--font-size-xl);
+  --font-size-heading-md: var(--font-size-2xl);
+  --font-size-heading-lg: var(--font-size-3xl);
+  --font-size-display: var(--font-size-4xl);
+
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --font-body: system-ui, sans-serif;
 }
