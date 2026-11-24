@@ -21,6 +21,8 @@ every push to main.
 - [Editorial](unit-4/grid-layout/editorial.html)
 - [Sticky](unit-4/advanced/sticky-demo.html)
 - [Container](unit-4/advanced/container-demo.html)
+- [Resume](resume.html)
+- [Contact](contact.html)
 
 ## Choose Topics and Videos
 
